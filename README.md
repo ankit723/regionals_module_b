@@ -7,3 +7,5 @@ To test the follwing the Post man collection is gievn at the root of the project
 
 
 The api /models/{id}.json is converted to /models/{id}/public.json as discussed iwth the JURY members
+
+Schema is in prisma/schema.prisma file
