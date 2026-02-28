@@ -16,7 +16,7 @@ export async function GET(req: NextRequest){
                 }
             }
         })
-        return NextResponse.json({...models})
+        return NextResponse.json(models)
     } catch (error) {
         console.log(error)
         return NextResponse.json({message: "There is some error from our end. Please Try Again"}, {status: 500})

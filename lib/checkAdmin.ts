@@ -8,7 +8,7 @@ export function checkAdmin(req: NextRequest){
         return false
     }
 
-    const isAdmin = jwt.verify(token, process.env.JWT_KEY || "")
+    const isAdmin:any = jwt.verify(token, process.env.JWT_KEY || "")
     if(isAdmin.user === "admin" ){
         return true
     }else{

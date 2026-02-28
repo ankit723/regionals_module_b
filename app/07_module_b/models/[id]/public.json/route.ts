@@ -8,7 +8,7 @@ export async function GET(req: NextRequest, {params}:{params:Promise<{id: string
         if(!model){
             return NextResponse.json({status: 404})
         }
-        return NextResponse.json({...model})
+        return NextResponse.json(model)
     } catch (error) {
         console.log(error)
         return NextResponse.json({message: "There is some error from our end. Please Try Again"}, {status: 500})

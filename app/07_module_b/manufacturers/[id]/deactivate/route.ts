@@ -14,12 +14,12 @@ export async function PATCH(req:NextRequest, {params}:{params:Promise<{id: strin
         await prisma.$transaction([
 
             prisma.manufacturer.update({
-                where:{id},
+                where:{id:parseInt(id)},
                 data:{active:false}
             }),
 
             prisma.model.updateMany({
-                where:{manufacturer_id: id},
+                where:{manufacturer_id: parseInt(id)},
                 data:{active: false}
             })
         ])
