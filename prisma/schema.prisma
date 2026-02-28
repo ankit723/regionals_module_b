@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model Manufacturer {
+  id  Int  @id
+  name String
+  country String
+  website String?
+  support_email String?
+  active  Boolean
+  models  Model[]
+}
+
+enum  CATEGORY{
+  twowheeler
+  threewheeler
+  fourwheeler
+  bus
+}
+
+model Model {
+  id  Int  @id
+  name  String
+  manufacturer_id Int
+  manufacturer Manufacturer @relation(fields: [manufacturer_id], references: [id])
+  category  CATEGORY
+  range   Int
+  fastCharginTime Int?
+  subsidyEligible   Boolean
+  active  Boolean
+}
